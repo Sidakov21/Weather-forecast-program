@@ -18,11 +18,11 @@ class MainActivity : AppCompatActivity() {
 
     private val apiKey = "5ed1de6f894605957a3cac828450165e" // <-- Ключ от OpenWeatherMap
 
-    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val dateTimeText = findViewById<TextView>(R.id.dateTimeText)
         val cityInput = findViewById<EditText>(R.id.cityInput)
         val searchButton = findViewById<Button>(R.id.searchButton)
         val tempText = findViewById<TextView>(R.id.tempText)
@@ -37,7 +37,17 @@ class MainActivity : AppCompatActivity() {
 
         val api = retrofit.create(WeatherApi::class.java)
 
+
+        fun updateDateTime() {
+            val currentDateTime = java.text.SimpleDateFormat("dd MMMM yyyy, HH:mm", java.util.Locale.getDefault()).format(java.util.Date())
+            dateTimeText.text = "Дата и время: $currentDateTime"
+        }
+
+        updateDateTime()
+
         searchButton.setOnClickListener {
+            updateDateTime()
+
             val city = cityInput.text.toString()
             if (city.isNotEmpty()) {
                 lifecycleScope.launch {

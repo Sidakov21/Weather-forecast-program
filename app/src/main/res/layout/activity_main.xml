@@ -1,53 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical"
-    android:padding="24dp"
+    android:background="#FAFAFA"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/cityInput"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginTop="30dp"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="Введите город" />
-
-    <Button
-        android:id="@+id/searchButton"
-        android:text="Показать погоду"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"/>
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="24dp">
 
-    <TextView
-        android:id="@+id/tempText"
-        android:text="Температура: -"
-        android:layout_marginTop="24dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <!-- Приветствие -->
+        <TextView
+            android:id="@+id/welcomeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Привет! Узнай погоду в своём городе 🌤️"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#3F51B5"
+            android:layout_marginBottom="24dp"
+            android:gravity="center" />
 
-    <TextView
-        android:id="@+id/descText"
-        android:text="Описание: -"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <!-- Поле ввода города -->
+        <EditText
+            android:id="@+id/cityInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Введите город"
+            android:padding="12dp"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:textColorHint="#9E9E9E"
+            android:backgroundTint="#6200EE"
+            android:layout_marginBottom="16dp" />
 
-    <TextView
-        android:id="@+id/humidityText"
-        android:text="Влажность: -"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <!-- Кнопка -->
+        <Button
+            android:id="@+id/searchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Показать погоду"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/rounded_button"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            android:layout_marginBottom="24dp" />
 
-    <ImageView
-        android:id="@+id/weatherIcon"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="16dp"/>
+        <!-- Время -->
+        <TextView
+            android:id="@+id/dateTimeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Дата и время: -"
+            android:textSize="17sp"
+            android:textColor="#555555"
+            android:layout_marginBottom="20dp" />
 
-</LinearLayout>
+        <!-- Температура -->
+        <TextView
+            android:id="@+id/tempText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Температура: -"
+            android:textSize="20sp"
+            android:layout_marginTop="12dp"
+            android:textColor="#212121" />
+
+        <!-- Описание -->
+        <TextView
+            android:id="@+id/descText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Описание: -"
+            android:textSize="20sp"
+            android:layout_marginTop="8dp"
+            android:textColor="#212121" />
+
+        <!-- Влажность -->
+        <TextView
+            android:id="@+id/humidityText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Влажность: -"
+            android:textSize="20sp"
+            android:layout_marginTop="8dp"
+            android:textColor="#212121" />
+
+        <!-- Иконка погоды -->
+        <ImageView
+            android:id="@+id/weatherIcon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="Иконка погоды" />
+
+    </LinearLayout>
+</ScrollView>
